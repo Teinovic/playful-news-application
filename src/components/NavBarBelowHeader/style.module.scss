@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    background-color: salmon;
+}
+
+.navFlex {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    width: auto;
+    padding: 0;
+    padding: 0.7rem;
+
+    @media (min-width: 675px) {
+        flex-direction: row;
+    }
+}
+
+.navItem {
+    @media (min-width: 675px) {
+        margin: auto 1rem;
+    }
+}
+
+.navItem a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffff;
+    margin: 0.1rem;
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: white solid 1px;
+    }
+}

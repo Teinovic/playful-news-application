@@ -1,0 +1,74 @@
+.main {
+    width: 100%;
+    background-color: royalblue;
+}
+
+.storiesContainer {
+    width: 90%;
+    margin: auto;
+    height: 59vh;
+    display: flex;
+    flex-direction: column;
+    background-color: royalblue;
+    justify-content: center;
+
+    @media (min-width: 675px) {
+        width: 60%;
+        height: 88vh;
+    }
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 15vh;
+        height: 73vh;
+    }
+
+    @media (max-height: 580px) {
+        padding-top: 10rem;
+    }
+}
+
+.storyContainer {
+    background-color: salmon;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 1em;
+    transition: 1s ease;
+
+    &:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        transition: 1s ease;
+        cursor: pointer;
+    }
+
+    &:active {
+		background-color: royalblue;
+		border-color: white;
+		box-shadow: none;
+    }
+
+
+    @media (min-width: 675px) {
+        padding: 3rem 0.8rem;
+    }
+    
+
+    @media (min-width: 1200px) {
+        padding: 8rem;
+    }
+}
+
+.title {
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+
+    @media (min-width: 1200px) {
+        min-width: 6rem;
+    }
+}

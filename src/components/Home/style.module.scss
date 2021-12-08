@@ -1,0 +1,60 @@
+@mixin flexCenter {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+@mixin Half {
+    width: 50%;
+    height: 100vh;
+    place-items: center;
+    transition: 1s ease;
+
+    &:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        transition: 1s ease;
+        cursor: pointer;
+    }
+}
+
+@mixin Title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+
+    @media (min-width: 675px) {
+        width: 45%;
+        font-size: 1.2rem;
+    }
+    
+}
+
+.container {
+    @include flexCenter();
+    width: 100%;
+    height: 100%;
+}
+
+.leftHalf {
+    @include flexCenter();
+    @include Half();
+    background-color: royalblue;
+
+}
+
+.rightHalf {
+    @include flexCenter();
+    @include Half();
+    background-color: salmon;
+}
+
+.titleLeft {
+    @include Title();
+    color: lightgray;
+}
+
+.titleRight {
+    @include Title();
+    color: whitesmoke;
+}
