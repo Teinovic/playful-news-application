@@ -3,6 +3,8 @@ import styles from './style.module.scss'
 import { Waypoint } from 'react-waypoint'
 import moment from 'moment'
 import { getComms, getTopStories } from './util'
+import { title } from 'process'
+import { url } from 'inspector'
 
 
 interface Props {
@@ -25,7 +27,7 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
 
     useEffect(() => {  
       getComms(commentsId, setCommentData, parentId, setLoading)
-    }, [commentsId]
+    }, [commentsId, parentId]
     )
 
     useEffect(() => {
@@ -37,62 +39,65 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
 
     return (        
         <main className={styles.main} >
-            {postsArr.map((key: any, index: any) => {
-               if (key[1] !== null) { 
+            {/* mapping the fetched news data */}
+            {postsArr.map((key: any, index: any) => {              
+              
+              const {id, url, title, score, by, time, kids} = key[1]
+              
+              if (key[1] !== null) { 
                 return ( 
-                    <div className={styles.cardContainer} key={key[1].id}>
-                        <h1 
-                            className={styles.title}    
-                        >
+                    <div className={styles.cardContainer} key={id}>
+                        <h1 className={styles.title}>
                             <a 
-                                href={key[1].url}
+                                href={url}
                                 target="_blank" 
                                 rel="noreferrer noopener"
                             >
-                                    {key[1].title}
+                                {title}
                             </a>
                         </h1>
                         <p className={styles.infoParagraph}>
-                          <em>{key[1].score} </em> 
-                          {key[1].score === 1? 'point ' : 'points '} 
-                          by <em>{key[1].by} </em> 
-                          {moment(key[1].time * 1000).fromNow()}.
+                          <em>{score} </em> 
+                          {score === 1? 'point ' : 'points '} 
+                          by <em>{by} </em> 
+                          {moment(time * 1000).fromNow()}.
                         </p>
                         
-                        {key[1].kids ? 
+                        {kids ? 
                         <div>                          
                           <a    
                                 href="#" 
                                 onClick={(event) => {
                                     event.preventDefault()
                                     setHide(false)                                    
-                                    toggleCommentsId(key[1].kids)
-                                    setParentId(key[1].id)
+                                    toggleCommentsId(kids)
+                                    setParentId(id)
                                 }}
-                                style={{display: parentId !== key[1].id ? 'block' : 'none' }}
+                                style={{display: parentId !== id ? 'block' : 'none' }}
                             >
-                            Read comments ({key[1].kids.length})
+                            Read comments ({kids.length})
                             </a>
                             
-                            {key[1].id === parentId && loading? <div className={styles.loaderComment}></div>: <div></div>}
-                            {key[1].id === parentId && parentId === commentData[0] && 
+                            {id === parentId && loading? <div className={styles.loaderComment}></div>: <></>}
+                            {id === parentId && parentId === commentData[0] && 
                             <figure 
                                 className={styles.list}
                                 style={{display: !hide ? 'block' : 'none' }}
                             >
-                                <figcaption>Top comments ({key[1].kids.length}):</figcaption>
+                                <figcaption>Top comments ({kids.length}):</figcaption>
                                 <ul>
-                                {commentData[1].map( (item, key) => {
+                                {/* mapping the comments under the condition that the read comments button is clicked */}
+                                {commentData[1].map( ({by, time, text, childCommentsArray, id}, key) => {
                                     return (                                        
-                                        <li>
-                                            Comment by <span>{item.by}</span>, {moment(item.time * 1000).fromNow()}.
-                                            <p>{item.text}</p>
+                                        <li key={id}>
+                                            Comment by <span>{by}</span>, {moment(time * 1000).fromNow()}.
+                                            <p>{text}</p>
                                             <ul>
-                                            {item.childCommentsArray.map((item, key) => {
+                                            {childCommentsArray.map(({by, time, text, id}, key) => {
                                                 return (
-                                                    <li>
-                                                        Comment by {item.by}, {moment(item.time * 1000).fromNow()}
-                                                        <p>{item.text}</p>
+                                                    <li key={id}>
+                                                        Comment by {by}, {moment(time * 1000).fromNow()}
+                                                        <p>{text}</p>
                                                     </li>
                                                 )
                                             })}
@@ -107,7 +112,9 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
                                 </div>
                             </figure>}   
                             
-                        </div> : <em>There are no comments to show.</em>}
+                        </div> : 
+                        <em>There are no comments to show.</em>
+                        }
                         
                         {index === postsArr.length - 1 && (
                             <Waypoint onEnter={() => setCount(prevCount => prevCount[1] < 500 ? [prevCount[0] + 20, prevCount[1] + 20]: [480, 500])}/>

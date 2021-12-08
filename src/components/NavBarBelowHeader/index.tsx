@@ -9,13 +9,13 @@ export const NavBar: React.FC<{storyUnderlinedProp: string}> = ({storyUnderlined
         <nav className={styles.container}>
             <ul className={styles.navFlex}>
                 <li className={styles.navItem}>
-                    <a onClick={() => navigate("/topstories")} style={{ borderBottom: storyUnderlinedProp==='topStories' && 'white solid 1px'}} >Top Stories</a>
+                    <p onClick={() => navigate("/topstories")} style={{ borderBottom: storyUnderlinedProp==='topStories' && 'white solid 1px'}} >Top Stories</p>
                 </li>
                 <li className={styles.navItem}>
-                    <a onClick={() => navigate("/beststories")} style={{ borderBottom: storyUnderlinedProp==='bestStories' && 'white solid 1px'}}>Best Stories</a>
+                    <p onClick={() => navigate("/beststories")} style={{ borderBottom: storyUnderlinedProp==='bestStories' && 'white solid 1px'}}>Best Stories</p>
                 </li>
                 <li className={styles.navItem}>
-                    <a onClick={() => navigate("/newstories")} style={{ borderBottom: storyUnderlinedProp==='newStories' && 'white solid 1px'}}>New Stories</a>
+                    <p onClick={() => navigate("/newstories")} style={{ borderBottom: storyUnderlinedProp==='newStories' && 'white solid 1px'}}>New Stories</p>
                 </li>
             </ul>
         </nav>
