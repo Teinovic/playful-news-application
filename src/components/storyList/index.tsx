@@ -3,8 +3,8 @@ import styles from './style.module.scss'
 import { Waypoint } from 'react-waypoint'
 import moment from 'moment'
 import { getComms, getTopStories } from './util'
-import { title } from 'process'
-import { url } from 'inspector'
+import { StoryInfo } from './storyInfo'
+
 
 
 interface Props {
@@ -47,25 +47,10 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
               if (key[1] !== null) { 
                 return ( 
                     <div className={styles.cardContainer} key={id}>
-                        <h1 className={styles.title}>
-                            <a 
-                                href={url}
-                                target="_blank" 
-                                rel="noreferrer noopener"
-                            >
-                                {title}
-                            </a>
-                        </h1>
-                        <p className={styles.infoParagraph}>
-                          <em>{score} </em> 
-                          {score === 1? 'point ' : 'points '} 
-                          by <em>{by} </em> 
-                          {moment(time * 1000).fromNow()}.
-                        </p>
-                        
+                        <StoryInfo itemProp={key[1]} />                        
                         {kids ? 
                         <div>                          
-                          <a    
+                            <a    
                                 href="#" 
                                 onClick={(event) => {
                                     event.preventDefault()
