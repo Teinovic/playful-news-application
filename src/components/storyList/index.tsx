@@ -42,7 +42,7 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
             {/* mapping the fetched news data */}
             {postsArr.map((key: any, index: any) => {              
               
-              const {id, url, title, score, by, time, kids} = key[1]
+              const {id, kids} = key[1]
               
               if (key[1] !== null) { 
                 return ( 
