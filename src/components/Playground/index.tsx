@@ -5,8 +5,6 @@ export const Playground = () => {
     const [count, setCount] = useState<number>(0)
     const [top, setTop] = useState<number>(50)
     const [left, setLeft] = useState<number>(20)
-
-    console.log(top, left)
     
     const moveRandomly = () => {
         let x = Math.floor(Math.random()*50);
