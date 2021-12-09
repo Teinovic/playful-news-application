@@ -4,6 +4,7 @@ import { Waypoint } from 'react-waypoint'
 import moment from 'moment'
 import { getComms, getTopStories } from './util'
 import { StoryInfo } from './storyInfo'
+import { StoryComments } from './storyComments'
 
 
 
@@ -71,29 +72,16 @@ export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
                             >
                                 <figcaption>Top comments ({kids.length}):</figcaption>
                                 <ul>
-                                {/* mapping the comments under the condition that the read comments button is clicked */}
-                                {commentData[1].map( ({by, time, text, childCommentsArray, id}, key) => {
-                                    return (                                        
-                                        <li key={id}>
-                                            Comment by <span>{by}</span>, {moment(time * 1000).fromNow()}.
-                                            <p>{text}</p>
-                                            <ul>
-                                            {childCommentsArray.map(({by, time, text, id}, key) => {
-                                                return (
-                                                    <li key={id}>
-                                                        Comment by {by}, {moment(time * 1000).fromNow()}
-                                                        <p>{text}</p>
-                                                    </li>
-                                                )
-                                            })}
-                                            </ul>
-                                        </li>
-                                        
-                                    )
-                                } )}
+                                    {/* mapping the comments under the condition that the read comments button is clicked */}
+                                    {commentData[1].map( (item, key) => <StoryComments itemProp={item}/>)}
                                 </ul>
                                 <div className={styles.hideButtonContainer}>
-                                    <button className={styles.hideButton} onClick={(e) => {e.preventDefault(); setHide(true)}}>Hide comments</button>
+                                    <button 
+                                        className={styles.hideButton} 
+                                        onClick={(e) => {e.preventDefault(); setHide(true)}}
+                                    >
+                                        Hide comments
+                                    </button>
                                 </div>
                             </figure>}   
                             
