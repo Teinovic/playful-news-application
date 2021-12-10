@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styles from './style.module.scss'
 import moment from 'moment'
+import { getComms } from './util'
+import { StoryCommentsList } from './storyCommentsList'
 
 interface Props {
     itemProp: any
 }
 
 export const StoryInfo: React.FC<Props> = ({itemProp}) => {
-    const {url, title, score, by, time} = itemProp             
+    const {url, title, score, by, time, kids} = itemProp        
     
     return (      
         <>              
@@ -21,11 +23,12 @@ export const StoryInfo: React.FC<Props> = ({itemProp}) => {
                 </a>
             </h1>
             <p className={styles.infoParagraph}>
-            <em>{score} </em> 
-            {score === 1? 'point ' : 'points '} 
-            by <em>{by} </em> 
-            {moment(time * 1000).fromNow()}.
+                <em>{score} </em> 
+                {score === 1? 'point ' : 'points '} 
+                by <em>{by} </em> 
+                {moment(time * 1000).fromNow()}.
             </p>
+            {kids && <StoryCommentsList kidsProp={kids}/>}
         </>
     )   
 }

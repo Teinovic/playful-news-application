@@ -1,4 +1,4 @@
-export async function getComms(commsId, fn, parentId: number, setLoadingFn) {
+export async function getComms(commsId, setCommentDataFn, setLoadingFn) {
     try { 
       setLoadingFn(true)
       const comments: any = []
@@ -22,7 +22,7 @@ export async function getComms(commsId, fn, parentId: number, setLoadingFn) {
         comments.push(json)          
       }
       setLoadingFn(false)
-      fn([parentId, comments])
+      setCommentDataFn(['bla', comments])
       
     } catch (err) {
       console.error(err)
@@ -30,7 +30,7 @@ export async function getComms(commsId, fn, parentId: number, setLoadingFn) {
 }
 
 
-export async function getTopStories(cnt, fn, url, endOfResultsFn) {
+export async function getStories(cnt, fn, url, endOfResultsFn) {
     try {
       const response = await fetch(url);
       if (response.ok === false) {
