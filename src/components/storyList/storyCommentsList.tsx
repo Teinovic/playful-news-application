@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import {getComms} from './util'
+import React, { useState, useEffect } from 'react'
+import { getComms } from './util'
 import styles from './style.module.scss'
-import {StoryComment} from './storyComment'
+import { StoryComment } from './storyComment'
 
 interface Props {
     kidsProp: any
@@ -42,7 +42,7 @@ export const StoryCommentsList: React.FC<Props> = ({kidsProp}) => {
             >
                 <figcaption>Top comments ({kidsProp.length}):</figcaption>
                 <ul>                        
-                    {commentData && commentData[1].map( (item, key) => <StoryComment itemProp={item}/>)}
+                    {commentData && commentData[1].map( (item, _) => <StoryComment itemProp={item}/>)}
                     <div className={styles.hideButtonContainer} style={{display: commentsVisible && !loading ? 'block' : 'none' }}>
                         <button 
                             className={styles.hideButton} 
