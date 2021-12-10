@@ -6,10 +6,8 @@ interface Props {
 }
 
 
-export const StoryComments: React.FC<Props> = ({itemProp}) => {
+export const StoryComment: React.FC<Props> = ({itemProp}) => {
     const { by, time, text, childCommentsArray, id} = itemProp
-    
-    console.log(itemProp)
 
     return (
         <li key={id}>

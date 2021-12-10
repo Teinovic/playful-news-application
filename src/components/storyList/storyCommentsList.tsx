@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {getComms} from './util'
 import styles from './style.module.scss'
-import {StoryComments} from './storyComments'
+import {StoryComment} from './storyComment'
 
 interface Props {
     kidsProp: any
 }
 
 export const StoryCommentsList: React.FC<Props> = ({kidsProp}) => {       
-    const [commentsIds, setCommentsIds] = useState<any>()
+    const [commentsIds, setCommentsIds] = useState<number>()
     const [loading, setLoading] = useState<boolean>(false)
-    const [commentData, setCommentData] = useState<any>()
+    const [commentData, setCommentData] = useState<{}>()
     const [commentsVisible, setCommentsVisible] = useState<boolean>(false)
 
 
@@ -42,7 +42,7 @@ export const StoryCommentsList: React.FC<Props> = ({kidsProp}) => {
             >
                 <figcaption>Top comments ({kidsProp.length}):</figcaption>
                 <ul>                        
-                    {commentData && commentData[1].map( (item, key) => <StoryComments itemProp={item}/>)}
+                    {commentData && commentData[1].map( (item, key) => <StoryComment itemProp={item}/>)}
                     <div className={styles.hideButtonContainer} style={{display: commentsVisible && !loading ? 'block' : 'none' }}>
                         <button 
                             className={styles.hideButton} 

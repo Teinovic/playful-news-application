@@ -30,7 +30,7 @@ export async function getComms(commsId, setCommentDataFn, setLoadingFn) {
 }
 
 
-export async function getStories(cnt, fn, url, endOfResultsFn) {
+export async function getStories(count, setPostsFn, url, endOfResultsFn) {
     try {
       const response = await fetch(url);
       if (response.ok === false) {
@@ -39,7 +39,7 @@ export async function getStories(cnt, fn, url, endOfResultsFn) {
       const json = await response.json();
       endOfResultsFn(json.length)
       const promises = json
-        .slice(cnt[0], cnt[1])  
+        .slice(count[0], count[1])  
         .map((id: number) =>
           fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
             response => response.json()
@@ -47,7 +47,7 @@ export async function getStories(cnt, fn, url, endOfResultsFn) {
         );
       const result = await Promise.all(promises);
       // console.log(result, 'postsArr')
-      fn(prevResult => [...prevResult, ...result]);
+      setPostsFn(prevResult => [...prevResult, ...result]);
     } catch (err) {
       console.error(err);
     }

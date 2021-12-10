@@ -13,7 +13,7 @@ interface Props {
 
 export const StoriesListed: React.FC<Props> = ({storiesLinkProp}) => {
     const [count, setCount] = useState([0, 20])
-    const [posts, setPosts] = useState<any>([])
+    const [posts, setPosts] = useState<{}>([])
     const [endOfResultsNum, setEndOfResultsNum] = useState<number>(200)
     
     const postsArr = Object.entries(posts)
