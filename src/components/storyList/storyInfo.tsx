@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styles from './style.module.scss'
 import moment from 'moment'
-import { getComms } from './util'
 import { StoryCommentsList } from './storyCommentsList'
 
 interface Props {
@@ -28,7 +27,7 @@ export const StoryInfo: React.FC<Props> = ({itemProp}) => {
                 by <em>{by} </em> 
                 {moment(time * 1000).fromNow()}.
             </p>
-            {kids && <StoryCommentsList kidsProp={kids}/>}
+            {kids ? <StoryCommentsList kidsProp={kids}/>: <em>There are no comments to show.</em>}
         </>
     )   
 }
