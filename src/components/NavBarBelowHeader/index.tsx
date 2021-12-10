@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './style.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-export const NavBar: React.FC<{storyUnderlinedProp: string}> = ({storyUnderlinedProp}) => {
+export const NavBar: React.FC<{ storyUnderlinedProp: string }> = ({ storyUnderlinedProp }) => {
     let navigate = useNavigate()
     
     return (

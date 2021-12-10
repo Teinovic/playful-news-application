@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import styles from './style.module.scss'
 
 export const Playground = () => {

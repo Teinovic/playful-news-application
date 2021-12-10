@@ -1,10 +1,10 @@
 import './App.css';
-import {Home} from './containers/Home';
-import {TopStoriesListedContainer} from './containers/StoriesListedContainers/TopStoriesListed'
-import {BestStoriesListedContainer} from './containers/StoriesListedContainers/BestStoriesListed'  
-import {NewStoriesListedContainer} from './containers/StoriesListedContainers/NewStoriesListed' 
-import {StoriesContainer} from './containers/Stories'
-import {PlaygroundContainer }from './containers/Playground'
+import { Home } from './containers/Home';
+import { TopStoriesListedContainer } from './containers/StoriesListedContainers/TopStoriesListed'
+import { BestStoriesListedContainer } from './containers/StoriesListedContainers/BestStoriesListed'  
+import { NewStoriesListedContainer } from './containers/StoriesListedContainers/NewStoriesListed' 
+import { StoriesContainer } from './containers/Stories'
+import { PlaygroundContainer }from './containers/Playground'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 

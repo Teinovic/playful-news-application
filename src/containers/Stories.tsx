@@ -1,4 +1,4 @@
-import {Stories} from '../components/Stories/index'
+import { Stories } from '../components/Stories/index'
 import { HeaderComponent } from '../components/Header'
 
 export function StoriesContainer() {
