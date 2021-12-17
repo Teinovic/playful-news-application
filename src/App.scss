@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+}
+
 :root {
   --clr-primary-300: whitesmoke;
   --clr-primary-400: salmon;
@@ -7,6 +11,7 @@
 
   --ff-primary: "Open sans", sans-serif;
   --ff-accent: serif;
+  min-height: 100%;
 }
 
 *,
@@ -17,9 +22,9 @@
 
 body {
   font-family: var(--ff-primary);
-  font-weight: 400;
-  font-size: 1.3125rem;
-  line-height: 1.6;
+
+  min-height: 100vh;
+  background-color: var(--clr-primary-300);
 }
 
 body,
@@ -33,17 +38,21 @@ p {
 h1,
 h2,
 h3 {
-  font-family: var(--ff-accent);
+  font-family: var(--ff-primary);
   font-weight: bold;
   line-height: 1;
+  color: var(--clr-primary-300);
 }
 
 header {
   color: var(--clr-neutral-100);
   background-color: var(--clr-primary-900);
+  width: min(90%, 70.5rem);
 }
 
 main {
   color: var(--clr-neutral-100);
   background-color: var(--clr-primary-300);
+  padding: 3rem 0;
+  margin-top: 0;
 }

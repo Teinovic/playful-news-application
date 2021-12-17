@@ -1,13 +1,13 @@
 .header {
   width: 100%;
   background-color: royalblue;
-  height: 41vh;
+  height: auto;
   position: sticky;
   top: 0;
+  margin-bottom: 0;
 }
 
 .containerNav {
-  width: 80%;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -53,9 +53,9 @@
   }
 }
 
-@media (min-width: 675px) {
+@media (min-width: 600px) {
   .header {
-    height: 12vh;
+    height: auto;
   }
 
   .containerNav {

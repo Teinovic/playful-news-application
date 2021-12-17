@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./style.module.scss"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { NavBar } from "../NavBarBelowHeader"
 
 interface Props {
@@ -16,44 +16,46 @@ export const HeaderComponent: React.FC<Props> = ({
   playgroundColor,
   storyUnderlined,
 }) => {
+  const navigate = useNavigate()
+
   return (
     <header
       className={styles.header}
       style={{ backgroundColor: playgroundColor && "salmon" }}
     >
       <div className={styles.containerNav}>
-        <div className={styles.logoContainer}>
-          <Link to="/">
-            <img
-              src={process.env.PUBLIC_URL + "/images/logo.png"}
-              alt="viking logo"
-              className={styles.siteLogo}
-            />
-          </Link>
+        <div className={styles.logoContainer} onClick={() => navigate("/")}>
+          <img
+            src={process.env.PUBLIC_URL + "/images/logo.png"}
+            alt="viking logo"
+            className={styles.siteLogo}
+          />
         </div>
         <nav>
           <ul className={styles.navList}>
             <li className={styles.navListLi}>
-              <Link
-                to="/stories"
+              <span
+                onClick={() => navigate("/stories")}
+                className={styles.listAttribute}
                 style={{
-                  textDecoration: "none",
                   borderBottom: storiesUnderlined && "white solid 2.5px",
+                  cursor: "pointer",
                 }}
               >
-                <span className={styles.listAttribute}>Stories</span>
-              </Link>
+                Stories
+              </span>
             </li>
             <li className={styles.navListLi}>
-              <Link
-                to="/playground"
+              <span
+                onClick={() => navigate("/playground")}
                 style={{
-                  textDecoration: "none",
                   borderBottom: !storiesUnderlined && "white solid 2.5px",
+                  cursor: "pointer",
                 }}
+                className={styles.listAttribute}
               >
-                <span className={styles.listAttribute}>Playground</span>
-              </Link>
+                Playground
+              </span>
             </li>
           </ul>
         </nav>
