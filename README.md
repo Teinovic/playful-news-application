@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 Hi! This is the setup guide for this app:
 -use a code editor of your choice
 -install node.js from their website(latest version)

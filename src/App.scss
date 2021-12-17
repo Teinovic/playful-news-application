@@ -1,0 +1,49 @@
+:root {
+  --clr-primary-300: whitesmoke;
+  --clr-primary-400: salmon;
+
+  --clr-neutral-100: white;
+  --clr-primary-900: royalblue;
+
+  --ff-primary: "Open sans", sans-serif;
+  --ff-accent: serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 400;
+  font-size: 1.3125rem;
+  line-height: 1.6;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-accent);
+  font-weight: bold;
+  line-height: 1;
+}
+
+header {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-900);
+}
+
+main {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-300);
+}

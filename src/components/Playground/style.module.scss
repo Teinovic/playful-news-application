@@ -1,117 +1,120 @@
 .amorphicContainer {
-    cursor: pointer;
-    height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: salmon;
+  cursor: pointer;
+  height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: salmon;
 
-    @media (max-width: 675px) {
-        height: 80vh;
-    }
+  @media (max-width: 675px) {
+    height: 80vh;
+  }
 }
 
 .amorphic {
-    background-color: royalblue;
-    place-items: center;
-    width: 40%;
-    height: 30%;
-    border-radius: 48% 79% 94% 31% / 46% 39% 88% 83%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: morphing 10s infinite;
+  background-color: royalblue;
+  place-items: center;
+  width: 40%;
+  height: 30%;
+  border-radius: 48% 79% 94% 31% / 46% 39% 88% 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: morphing 10s infinite;
 }
 
 .amorphic p {
-    color: white;
-    padding: 1rem;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.8rem;
-    color: #ffff;
+  color: white;
+  padding: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #ffff;
 }
 
-
 .balloonContainer {
-    position: absolute;
-    transition: 2s;
+  position: absolute;
+  transition: 2s;
 }
 
 .balloon {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:120px;
-    height:145px;
-    background:white;
-    border-radius:80%;
-    position:relative;
-    margin:20px 30px;
-    transition:transform 0.5s ease;
-    z-index:10;
-    animation: balloon 4s ease-in-out infinite;
-    transform-origin:bottom center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 145px;
+  background: white;
+  border-radius: 80%;
+  position: relative;
+  margin: 20px 30px;
+  transition: transform 0.5s ease;
+  z-index: 10;
+  animation: balloon 4s ease-in-out infinite;
+  transform-origin: bottom center;
+
+  @media (max-width: 675px) {
+    width: 60px;
+    height: 72px;
+  }
+
+  &:before {
+    content: "▲";
+    font-size: 20px;
+    color: white;
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: -12px;
+    z-index: -100;
+  }
+
+  &:after {
+    display: inline-block;
+    top: 153px;
+    position: absolute;
+    height: 250px;
+    width: 1px;
+    margin: 0 auto;
+    content: "";
+    background: rgba(0, 0, 0, 0.2);
 
     @media (max-width: 675px) {
-        width:60px;
-        height:72px;
+      top: 80px;
+      height: 72px;
     }
-
-    &:before {
-        content:"▲";
-        font-size:20px;
-        color:white;
-        display:block;
-        text-align:center;
-        width:100%;
-        position:absolute;
-        bottom:-12px;
-        z-index:-100;
-    }
-      
-    &:after {
-        display:inline-block; 
-        top:153px;
-        position:absolute;
-        height:250px;
-        width:1px;
-        margin:0 auto;
-        content:"";
-        background:rgba(0,0,0,0.2); 
-
-        @media (max-width: 675px) {
-            top: 80px;
-            height:72px;
-        }
-    }
+  }
 }
-  
+
 @keyframes balloon {
-    0%,100%{ transform:translateY(0) rotate(-4deg); }
-    50%{ transform:translateY(-25px) rotate(4deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
 }
-  
 
 @keyframes morphing {
-    0% {
-        border-radius: 48% 79% 94% 31% / 46% 39% 88% 83%;
-        box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
-    }
-    25% { 
-        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%
-    }
-    50% {
-        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-        box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
-    }
-    75% {
-        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-    }
+  0% {
+    border-radius: 48% 79% 94% 31% / 46% 39% 88% 83%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
 }
 
 .balloon p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
